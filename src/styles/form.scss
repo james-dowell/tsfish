@@ -1,0 +1,31 @@
+.form {
+    button {
+        appearance: none;
+        border: 0;
+        background-color: #09406C;
+        color: white;
+        padding: 5px 10px;
+        font-size: 1.1rem;
+        margin-right: 1rem;
+    }
+
+    button[disabled] {
+        opacity: .5;
+        cursor: not-allowed;
+    }
+}
+
+.form-control {
+    width: 33.333%;
+    display: inline-block;
+    margin-bottom: .5rem;
+
+    input {
+        margin-right: 5px;
+    }
+}
+
+.error {
+    padding: 10px 0;
+    color: #ff6666;
+}

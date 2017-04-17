@@ -1,0 +1,36 @@
+{
+  "name": "attest-code-test",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm run mocha",
+    "test:watch": "chokidar 'src/**/*.ts*' -c 'npm run mocha'",
+    "serve": "(npm run rollupjs && browser-sync start --config bs-config.js) & npm run watch:js | npm run watch:css",
+    "watch:js": "chokidar 'src/**/*.ts?(x)' --polling -c 'npm run rollupjs && echo Built!'",
+    "rollupjs": "rollup -c --output .tmp/scripts/app.js --sourcemap",
+    "mocha": "TS_NODE_FAST=true TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' mocha --colors --compilers ts:ts-node/register,tsx:ts-node/register --require test-setup.js --reporter dot 'src/**/*.spec.ts*' || exit 0",
+    "build:css": "node-sass --source-map ./.tmp/styles/styles.css.map src/styles/styles.scss -o ./.tmp/styles",
+    "watch:css": "chokidar 'src/**/*.scss' -c 'npm run build:css'",
+    "postinstall": "typings install"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.18.8",
+    "chai": "^3.5.0",
+    "chokidar-cli": "^1.2.0",
+    "jsdom": "^9.12.0",
+    "mocha": "^3.2.0",
+    "node-sass": "^4.5.2",
+    "rollup": "^0.41.6",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "sinon": "^2.1.0",
+    "sinon-chai": "^2.9.0",
+    "ts-node": "^3.0.2",
+    "typescript": "^2.2.2",
+    "typings": "^2.1.1"
+  }
+}
