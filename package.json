@@ -12,7 +12,8 @@
     "mocha": "TS_NODE_FAST=true TS_NODE_COMPILER_OPTIONS='{\"module\": \"commonjs\"}' mocha --colors --compilers ts:ts-node/register,tsx:ts-node/register --require test-setup.js --reporter dot 'src/**/*.spec.ts*' || exit 0",
     "build:css": "node-sass --source-map ./.tmp/styles/styles.css.map src/styles/styles.scss -o ./.tmp/styles",
     "watch:css": "chokidar 'src/**/*.scss' -c 'npm run build:css'",
-    "postinstall": "typings install"
+    "postinstall": "typings install",
+    "start": "npm install && npm run build:css && npm run serve"
   },
   "author": "",
   "license": "ISC",

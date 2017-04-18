@@ -2,4 +2,4 @@
 
 clone the repo:
 
-run `npm install` (this should install the typings) and `npm run serve` to get started
+run `npm start` and that should get you going
